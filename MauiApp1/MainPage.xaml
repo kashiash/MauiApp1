@@ -5,35 +5,72 @@
 
 
 
-        <Grid
+    <Grid
                 RowSpacing="25"
                 RowDefinitions="*,Auto,Auto,Auto"
+        ColumnSpacing="25" ColumnDefinitions="*,Auto"
                 Padding="{OnPlatform iOS='30,60,30,30'
             ,Default='30'}">
 
-            <Rectangle
+        <Rectangle
                     x:Name="rectangle"
 
 
            HorizontalOptions="Start"
                    
                 Fill="Black"/>
-            <Slider    
+        <Slider    
                     x:Name="sliderR"
                     Grid.Row="1"
+                Maximum="255"
                 ValueChanged="slider_ValueChanged"
                 />
-            <Slider    
+        <Label
+            x:Name="labelR"
+            WidthRequest="65"
+            Grid.Row="1" Grid.Column="1"
+            HorizontalTextAlignment="End"
+            VerticalTextAlignment="Center"
+            Text="0"
+            TextColor="Red"
+            FontSize="35"
+            
+            />
+        <Slider    
                      x:Name="sliderG"
                     Grid.Row="2"
+                Maximum="255"
                 ValueChanged="slider_ValueChanged"
                 />
-            <Slider   
+        <Label
+            x:Name="labelG"
+            WidthRequest="65"
+            Grid.Row="2" Grid.Column="1"
+            HorizontalTextAlignment="End"
+            VerticalTextAlignment="Center"
+            Text="0"
+            TextColor="Green"
+            FontSize="35"
+            
+            />
+        <Slider   
                      x:Name="sliderB"
                     Grid.Row="3"
+                Maximum="255"
                 ValueChanged="slider_ValueChanged"
                 />
-        </Grid>
+        <Label
+            x:Name="labelB"
+            WidthRequest="65"
+            Grid.Row="3" Grid.Column="1"
+            HorizontalTextAlignment="End"
+            VerticalTextAlignment="Center"
+            Text="0"
+            TextColor="Blue"
+            FontSize="35"
+            
+            />
+    </Grid>
 
 
 
