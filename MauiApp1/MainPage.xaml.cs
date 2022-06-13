@@ -7,18 +7,15 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
-	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+    }
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+    private  void slider_ValueChanged(object sender, EventArgs e)
+    {
+        Color color = Color.FromRgb(sliderR.Value, sliderG.Value, sliderB.Value);
+        rectangle.Fill = new SolidColorBrush(color);
+    }
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+
 }
 
