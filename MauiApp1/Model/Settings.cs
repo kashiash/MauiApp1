@@ -1,6 +1,6 @@
-﻿using System.Xml.Linq;
-using System.Globalization;
-namespace MauiApp1
+﻿using System.Globalization;
+using System.Xml.Linq;
+namespace MauiApp1.Model
 {
     internal static class Settings
     {
@@ -10,28 +10,27 @@ namespace MauiApp1
             "kolory.xml");
         private static IFormatProvider formatProvider =
             CultureInfo.InvariantCulture;
-        public static void Save(
-            double r, double g, double b)
+
+        public static void Save(Color color)
         {
             XDocument xml = new XDocument(
                 new XElement("ustawienia",
                     new XElement(
                         "r",
-                        r.ToString(formatProvider)),
+                        color.R.ToString(formatProvider)),
                     new XElement(
                         "g",
-                        g.ToString(formatProvider)),
+                        color.G.ToString(formatProvider)),
                     new XElement(
                         "b",
-                        b.ToString(formatProvider))
-                                   )
-           );
+                        color.B.ToString(formatProvider))
+                )
+            );
             xml.Save(filePath);
         }
-        public static (double r, double g, double b) Load()
+        public static Color Load()
         {
-            if (!File.Exists(filePath))
-                return (0.0, 0.0, 0.0);
+            if (!File.Exists(filePath)) return Color.Black;
             try
             {
                 XDocument xml = XDocument.Load(filePath);
@@ -44,11 +43,11 @@ namespace MauiApp1
                 double b = double.Parse(
                     xml.Root.Element("b").Value,
                     formatProvider);
-                return (r, g, b);
+                return new Color(r, g, b);
             }
             catch
             {
-                return (0.0, 0.0, 0.0);
+                return Color.Black;
             }
         }
     }
