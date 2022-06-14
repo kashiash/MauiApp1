@@ -13,17 +13,14 @@
             ,Default='30'}">
 
         <Rectangle
-                    x:Name="rectangle"
-
-
-           HorizontalOptions="Start"
-                   
-                Fill="Black"/>
+            x:Name="rectangle"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="Start"
+            Fill="Black"/>
         <Slider    
-                    x:Name="sliderR"
-                    Grid.Row="1"
-                Maximum="255"
-                ValueChanged="slider_ValueChanged"
+            x:Name="sliderR"
+            Grid.Row="1" 
+            ValueChanged="slider_ValueChanged"
                 />
         <Label
             x:Name="labelR"
@@ -39,7 +36,7 @@
         <Slider    
                      x:Name="sliderG"
                     Grid.Row="2"
-                Maximum="255"
+            
                 ValueChanged="slider_ValueChanged"
                 />
         <Label
@@ -56,7 +53,7 @@
         <Slider   
                      x:Name="sliderB"
                     Grid.Row="3"
-                Maximum="255"
+           
                 ValueChanged="slider_ValueChanged"
                 />
         <Label
